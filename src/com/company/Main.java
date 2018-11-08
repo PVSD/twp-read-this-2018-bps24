@@ -5,7 +5,8 @@ import java.util.*;
 public class Main
 {
     public static void main(String[] args)
-    throws IOException
+    throws IOException,NoSuchElementException
+
     {
         Scanner sf = new Scanner(new File("C:\\Users\\bryce_000\\IdeaProjects\\twp-read-this-2018-bps24\\src\\Imports.txt"));
         int maxIndx = -1;
@@ -26,13 +27,13 @@ public class Main
 
         for (int i=0;i<=maxIndx;i++)
         {
-           Scanner sf2 = new Scanner(text[maxIndx]);
+           Scanner sf2 = new Scanner(text[i+1]).useDelimiter("\\s*");
            fir=sf2.next();
-           las=sf2.next();
-           ave=sf2.nextInt();
-           abs=sf2.nextInt();
+           //las=sf2.next();
+           //ave=sf2.nextInt();
+           //abs=sf2.nextInt();
 
-           a[i]=new Student(fir,las,ave,abs);
+           a[i]=new Student(fir,"as",1,2);
         }
 
         System.out.println(a[4].getFirst());
