@@ -2,20 +2,39 @@ package com.company;
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class Main
+{
+    public static void main(String[] args)
+    throws IOException
+    {
+        Scanner sf = new Scanner(new File("C:\\Users\\bryce_000\\IdeaProjects\\twp-read-this-2018-bps24\\src\\Imports.txt"));
+        int maxIndx = -1;
+        String text[] = new String[1000];
+        Student [] a = new Student[50];
+        String fir=null;
+        String las=null;
+        int ave=0;
+        int abs=0;
 
-    public static void main(String[] args) {
-        String line = null;
+        while(sf.hasNext( ))
+        {
+            maxIndx++;
+            text[maxIndx] = sf.nextLine( ) ;
+        }
 
-        File students = new File("C:\\Users\\bs482\\IdeaProjects\\twp-read-this-2018-bps24\\src\\Imports.txt");
-        Scanner reader = new Scanner(students);
+        sf.close( );
 
-       try
-       {
-           FileReader fileReader = new FileReader(students);
-           BufferedReader bufferedReader = new BufferedReader(students);
-           while ((line = bufferedReader.readLine()) != null)
-       }
+        for (int i=0;i<=maxIndx;i++)
+        {
+           Scanner sf2 = new Scanner(text[maxIndx]);
+           fir=sf2.next();
+           las=sf2.next();
+           ave=sf2.nextInt();
+           abs=sf2.nextInt();
 
+           a[i]=new Student(fir,las,ave,abs);
+        }
+
+        System.out.println(a[4].getFirst());
     }
 }
